@@ -586,13 +586,13 @@ const QUESTIONS_BANK = [
   }
 ];
 
-// ---- Quiz Logic ----
+// ---- Quizz Logic ----
 
 let currentQuestions = [];
 let currentIndex = 0;
 let score = 0;
 let userAnswers = [];
-let quizStarted = false;
+let quizzStarted = false;
 let answered = false;
 
 function shuffle(array) {
@@ -603,17 +603,17 @@ function shuffle(array) {
   return array;
 }
 
-function startQuiz() {
+function startQuizz() {
   const shuffled = shuffle([...QUESTIONS_BANK]);
   currentQuestions = shuffled.slice(0, 10);
   currentIndex = 0;
   score = 0;
   userAnswers = [];
-  quizStarted = true;
+  quizzStarted = true;
 
   document.getElementById('start-screen').classList.add('hidden');
   document.getElementById('result-screen').classList.add('hidden');
-  document.getElementById('quiz-screen').classList.remove('hidden');
+  document.getElementById('quizz-screen').classList.remove('hidden');
   renderQuestion();
 }
 
@@ -706,8 +706,8 @@ function nextQuestion() {
 }
 
 function showResults() {
-  quizStarted = false;
-  document.getElementById('quiz-screen').classList.add('hidden');
+  quizzStarted = false;
+  document.getElementById('quizz-screen').classList.add('hidden');
   document.getElementById('result-screen').classList.remove('hidden');
 
   document.getElementById('progress-bar-fill').style.width = '100%';
@@ -745,10 +745,10 @@ function showResults() {
   });
 }
 
-function restartQuiz() {
+function restartQuizz() {
   document.getElementById('result-screen').classList.add('hidden');
   document.getElementById('start-screen').classList.remove('hidden');
-  quizStarted = false;
+  quizzStarted = false;
 }
 
 // ---- Leave-page warning ----
@@ -756,7 +756,7 @@ function restartQuiz() {
 let toastTimeout;
 
 function showLeaveWarning() {
-  if (!quizStarted) return;
+  if (!quizzStarted) return;
   const overlay = document.getElementById('leave-overlay');
   const toast = document.getElementById('leave-toast');
   overlay.classList.add('visible');
@@ -783,7 +783,7 @@ document.addEventListener('mouseleave', (e) => {
 document.addEventListener('mouseenter', hideLeaveWarning);
 
 window.addEventListener('beforeunload', (e) => {
-  if (quizStarted) {
+  if (quizzStarted) {
     e.preventDefault();
     e.returnValue = '';
   }
