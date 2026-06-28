@@ -612,6 +612,7 @@ function startQuiz() {
   quizStarted = true;
 
   document.getElementById('start-screen').classList.add('hidden');
+  document.getElementById('result-screen').classList.add('hidden');
   document.getElementById('quiz-screen').classList.remove('hidden');
   renderQuestion();
 }
