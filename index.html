@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Permis de Conduire</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ÉCRAN D'ACCUEIL -->
+  <div id="start-screen" class="screen">
+    <div class="card">
+      <div class="logo">
+        <div class="logo-icon">🚗</div>
+        <div class="logo-text">
+          <h1>Quiz Permis</h1>
+          <p>Révisions pour l'examen pratique</p>
+        </div>
+      </div>
+      <p class="start-description">
+        Entraînez-vous aux questions posées lors de l'épreuve hors circulation du permis B :
+        vérifications techniques, sécurité routière et premiers secours.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">🎯</span>
+          <div class="feature-text">
+            <strong>10 questions</strong>
+            <span>Sélectionnées aléatoirement</span>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">⏱️</span>
+          <div class="feature-text">
+            <strong>Sans limite de temps</strong>
+            <span>À votre rythme</span>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">📊</span>
+          <div class="feature-text">
+            <strong>Résultat sur 10</strong>
+            <span>Récapitulatif détaillé</span>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🔄</span>
+          <div class="feature-text">
+            <strong>Questions variées</strong>
+            <span>Sécurité & premiers secours</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="startQuiz()">Commencer la série →</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN DE QUIZ -->
+  <div id="quiz-screen" class="screen hidden">
+    <div class="card">
+      <div class="progress-area">
+        <div class="progress-header">
+          <span class="progress-text" id="progress-text">Question 1 / 10</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div id="question-category" class="question-category">Sécurité routière</div>
+      <p id="question-text" class="question-text"></p>
+
+      <div id="options-container" class="options-container"></div>
+
+      <div id="feedback-container" class="feedback-container"></div>
+
+      <button id="validate-btn" class="validate-btn" disabled onclick="validateAnswer()">Valider</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN DE RÉSULTATS -->
+  <div id="result-screen" class="screen hidden">
+    <div class="card">
+      <div class="progress-area">
+        <div class="progress-header">
+          <span class="progress-text">Série terminée</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="progress-bar-fill" style="width: 100%"></div>
+        </div>
+      </div>
+
+      <div class="result-header">
+        <h2>Série terminée !</h2>
+        <p>Voici votre résultat et le récapitulatif des questions posées.</p>
+      </div>
+
+      <div class="score-block">
+        <div id="score-display" class="score-display">—</div>
+        <p id="score-message"></p>
+      </div>
+
+      <p class="recap-title">Récapitulatif des questions</p>
+      <div id="recap-list" class="recap-list"></div>
+
+      <div class="result-actions">
+        <button class="btn-secondary" onclick="restartQuiz()">← Accueil</button>
+        <button class="btn-primary" onclick="startQuiz()">Nouvelle série →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERLAY SORTIE DE PAGE -->
+  <div id="leave-overlay"></div>
+  <div id="leave-toast">
+    <span class="toast-icon">⚠️</span>
+    <div class="toast-content">
+      <strong>Attention !</strong>
+      <span>Si vous rechargez la page, la progression de votre série sera perdue.</span>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
