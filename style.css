@@ -339,9 +339,53 @@ body {
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 600px) {
-  .card { padding: 24px 20px; }
-  .features { grid-template-columns: 1fr; }
+  body { padding: 12px; align-items: flex-start; }
+
+  .card { padding: 22px 18px; }
+
+  /* Logo */
+  .logo { margin-bottom: 20px; gap: 12px; }
+  .logo-icon { width: 44px; height: 44px; font-size: 22px; }
+  .logo-text h1 { font-size: 1.25rem; }
+
+  /* Grille features */
+  .features { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+
+  /* Question */
+  .question-category { font-size: 0.8rem; }
+  .question-text { font-size: 1.15rem; line-height: 1.6; margin-bottom: 22px; }
+
+  /* Options */
+  .option-btn {
+    font-size: 1rem;
+    padding: 16px 16px;
+    line-height: 1.5;
+  }
+
+  /* Bouton valider */
+  .validate-btn { font-size: 1rem; padding: 16px; }
+
+  /* Bouton accueil */
+  .btn-primary { font-size: 1rem; padding: 16px; }
+
+  /* Score */
   .score-display { font-size: 3.5rem; }
-  #leave-toast { min-width: unset; width: calc(100vw - 40px); }
+
+  /* Récap */
+  .recap-question { font-size: 0.95rem; }
+  .recap-answers { font-size: 0.88rem; }
+
+  /* Actions résultats */
   .result-actions { flex-direction: column; }
+
+  /* Toast */
+  #leave-toast { min-width: unset; width: calc(100vw - 32px); }
+}
+
+/* Très petits écrans (≤ 380px — ex : iPhone SE, Galaxy A12) */
+@media (max-width: 380px) {
+  .card { padding: 18px 14px; }
+  .question-text { font-size: 1.05rem; }
+  .option-btn { font-size: 0.95rem; padding: 14px 14px; }
+  .validate-btn { font-size: 0.95rem; }
 }
